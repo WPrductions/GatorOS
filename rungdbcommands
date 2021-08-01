@@ -1,0 +1,4 @@
+target remote | qemu-system-i386 -hda ./bin/os.bin -S -gdb stdio
+add-symbol-file ./bin-int/kernel_linked.o 0x0100000
+break kernel.c:83
+c
