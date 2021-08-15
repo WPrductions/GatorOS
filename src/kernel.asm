@@ -31,9 +31,6 @@ _start:
   out 0x21, al
   ; end remap
 
-  ;Enable interrupts
-  sti
-
   call kernel_main
 
   jmp $

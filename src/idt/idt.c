@@ -11,6 +11,8 @@ extern void idt_load(struct idtr_desc* ptr);
 extern void int21h();
 extern void no_interrupt();
 
+
+
 void no_interrupt_handler()
 {
     outb(0x20, 0x20);

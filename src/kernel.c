@@ -5,10 +5,12 @@
 #include "idt/idt.h"
 #include "io/io.h"
 #include "memory/heap/kheap.h"
+#include "memory/paging/paging.h"
 
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
 uint16_t terminal_col = 0;
+struct paging_4gb_chunk* paging_chunk = 0;
 
 uint16_t terminal_make_char(char c, char colour)
 {
@@ -70,7 +72,22 @@ void print(const char* str)
 
 void kernel_main()
 {
+    // Initialize Terminal Outputs
     terminal_init();
+
+    // initialize the 100MB Heap
     kheap_init();
+
+    // Initialize interrupt desctiptor table
     idt_init();
+
+    //Initialize Paging
+    paging_chunk = paging_new_4gb(PAGING_IS_WRITABLE | PAGING_IS_PRESENT | PAGING_ACCESS_FROM_ALL);
+    paging_switch(paging_4gb_chnuk_get_directory(paging_chunk));
+    enable_paging();
+
+    // Enable system interrupts
+    enable_interrupts();
+
+    print("Yeet");
 }

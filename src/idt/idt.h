@@ -15,9 +15,11 @@ struct idt_desc
 struct idtr_desc
 {
     uint16_t limit; // Size of descriptot rable -1
-    uint32_t base;  // Base Address of the start of  the itterupt descriptort table
+    uint32_t base;  // Base Address of the start of  the interrupt descriptort table
 } __attribute__((packed));
 
 void idt_init();
+void enable_interrupts();
+void disable_interrupts();
 
 #endif
