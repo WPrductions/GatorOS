@@ -50,7 +50,7 @@ run32:
 	qemu-system-i386 -hda ./bin/os.bin
 
 sim:
-	gdb -x rungdbcommands
+	gdb -x rungdbcommands.gdbconf
 
 test64:
 	make build

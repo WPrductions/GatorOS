@@ -47,7 +47,7 @@ void idt_init()
     idtr_descriptors.limit = sizeof(idt_descriptors) - 1;
     idtr_descriptors.base = (uint32_t) idt_descriptors;
 
-    for(int i = 0; i< GATOROS_TOTAL_INTERRUPTS; i++)
+    for(int i = 0; i < GATOROS_TOTAL_INTERRUPTS; i++)
     {
         idt_set(i, no_interrupt);
     }

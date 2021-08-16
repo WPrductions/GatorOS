@@ -13,4 +13,6 @@
 
 #define GATOROS_SECTOR_SIZE 512
 
+#define GATOROS_MAX_PATH 108
+
 #endif

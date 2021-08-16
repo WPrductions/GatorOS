@@ -7,6 +7,8 @@
 #include "memory/heap/kheap.h"
 #include "memory/paging/paging.h"
 #include "disk/disk.h"
+#include "string/string.h"
+#include "fs/pparser.h"
 
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
@@ -52,15 +54,6 @@ void terminal_init()
         for (int x = 0; x < VGA_WIDTH; x++)
             terminal_putchar(x, y, ' ', 0);
         
-}
-
-size_t strlen(const char* str)
-{
-    size_t len = 0;
-    while (str[len])
-        len++;
-    
-    return len;
 }
 
 void print(const char* str)

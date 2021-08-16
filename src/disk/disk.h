@@ -13,9 +13,15 @@ struct disk
     int sector_size;
 };
 
-
+// Searches and intializes all disks
+// (Temporarily hardcoded to one disk)
 void disk_search_and_init();
+
+// Gets disk by index
+// (Temporarily hardcoded to one disk with index 0, all oter indeces will cause an error)
 struct disk* disk_get(int index);
+
+// Reads blocks from hard disk in sectors of each 512 bytes
 int disk_read_block(struct disk* idisk, int lba, int total, void* buffer);
 
 

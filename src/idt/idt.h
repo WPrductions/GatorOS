@@ -18,8 +18,15 @@ struct idtr_desc
     uint32_t base;  // Base Address of the start of  the interrupt descriptort table
 } __attribute__((packed));
 
+// Initializes interrupt descriptor table
+// Sets up the idt and sets all implemented interrupts
+// Initializes all unimpemented interrupst with no interrupt
 void idt_init();
+
+// Triggers enable interrupt asm function
 void enable_interrupts();
+
+// Triggers clear interrupt asm function
 void disable_interrupts();
 
 #endif
